@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
 from .models import Profile
 
@@ -59,6 +59,8 @@ def register(request):
 
 @login_required
 def edit(request):
+    # Retrieve the user's profile or raise a 404 error if it doesn't exist
+    profile = get_object_or_404(Profile, user=request.user)
     if request.method == "POST":
         user_form = UserEditForm(instance=request.user, data=request.POST)
         profile_form = ProfileEditForm(
@@ -67,11 +69,12 @@ def edit(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-        else:
-            user_form = UserEditForm(instance=request.user)
-            profile_form = ProfileEditForm(instance=request.user.profile)
-        return render(
-            request,
-            "account/edit.html",
-            {"user_form": user_form, "profile_form": profile_form},
-        )
+            return redirect("dashboard")  # Redirect to the dashboard view
+    else:
+        user_form = UserEditForm(instance=request.user)
+        profile_form = ProfileEditForm(instance=request.user.profile)
+    return render(
+        request,
+        "account/edit.html",
+        {"user_form": user_form, "profile_form": profile_form},
+    )
