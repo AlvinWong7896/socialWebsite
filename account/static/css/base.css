@@ -1,10 +1,23 @@
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: medium;
+}
 
-/* #header {
-    background-color: #242424;
+body {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: stretch;
-} */
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 100vh;
+    margin: 0;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #242424;
+    padding: 10px;
+}
 
 .logo {
     color: rgb(7, 121, 83);
@@ -13,31 +26,53 @@
 }
 
 .menu {
-    background-color: #242424;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: stretch;
+    align-items: center;
+    gap: 70px;
 }
 
 .menu li {
     list-style-type: none;
-    justify-content: stretch;
 }
 
 .menu a {
-    display: inline-block;
-    padding: 25px;
-    margin: 0 25px;
-    text-align: center ;
     text-decoration: none;
     color: white;
+    padding: 10px;
 }
 
-/* .user a {
-    display: inline-block;
-    padding: 25px;
-    margin: 0 25px;
-    text-align: center ;
+.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+}
+
+.user a.greeting {
+    color: white !important;
+}
+
+.user a {
     text-decoration: none;
     color: white;
-} */
+    padding: 10px;
+}
+
+.user a:not(.greeting):hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#content {
+    padding: 20px;
+}
+
+#content h1 {
+    font-size: x-large;
+}
+
+#content p {
+    font-size: medium;
+}
