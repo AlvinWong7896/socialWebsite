@@ -76,3 +76,10 @@ body {
 #content p {
     font-size: medium;
 }
+
+.messages li {
+    color: red;
+    background-color: bisque;
+    font-style: italic;
+    font-weight: 200;
+}
