@@ -26,7 +26,7 @@
         <span class="user">
             {% if request.user.is_authenticated %}
                 <a href="#" style="color: white;">
-                    Hello {{ request.user.first_name }}
+                    Hello {{ request.user.first_name|safe }}
                 </a>
                 <a href="{% url 'logout' %}" class="greeting">Logout</a>
             {% else %}

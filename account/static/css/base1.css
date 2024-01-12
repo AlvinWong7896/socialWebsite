@@ -3,47 +3,40 @@
     font-size: medium;
 }
 
-body {
+#header {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: auto auto 1fr;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 100px auto 1fr;
 }
 .logo {
-    grid-column: 1;
-    grid-row: 1;
     color: rgb(7, 121, 83);
     font-size: xx-large;
+    place-items: center;
     text-align: left;
 }
 
-.menu {
-    grid-column: 1;
-    grid-row: 2;
+ul.menu {
+    grid-column: 3 / 9;
+}
+
+#header li {
+    list-style-type: none;
+    grid-gap: 10px;
+    display: inline-block;
     background-color: #242424;
-    display: flex;
+    color: white;
     justify-content: space-between;
     align-items: center;
-}
-
-.menu li {
-    list-style-type: none;
-}
-
-.menu a {
-    padding: 25px;
-    margin: 0 10px;
-    text-align: center ;
-    text-decoration: none;
-    color: white;
+    padding: 10px;
 }
 
 .user {
-    grid-column: 2;
-    grid-row: 2;
     background-color: #242424;
-    display: flex;
-    justify-content: flex-end;
+    color: white;
+    justify-content: space-between;
+    place-items: center;
     align-items: center;
+    grid-column: 9/ span 12;
 }
 
 .user a.greeting {

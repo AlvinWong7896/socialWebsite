@@ -20,7 +20,7 @@ body {
 }
 
 .logo {
-    color: rgb(7, 121, 83);
+    color: rgb(17, 127, 70);
     font-size: xx-large;
     text-align: left;
 }
@@ -28,7 +28,7 @@ body {
 .menu {
     display: flex;
     align-items: center;
-    gap: 70px;
+    gap: 100px;
 }
 
 .menu li {
@@ -48,7 +48,7 @@ body {
 .user {
     display: flex;
     align-items: center;
-    gap: 70px;
+    gap: 100px;
 }
 
 .user a.greeting {
