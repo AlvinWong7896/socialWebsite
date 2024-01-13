@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "social_django",
     "django_extensions",
-    "sslserver",
 ]
 
 MIDDLEWARE = [
@@ -147,6 +146,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 AUTHENTICATION_BACKENDS = {
     "django.contrib.auth.backends.ModelBackend",
     "account.authentication.EmailAuthBackend",
+    "social_core.backends.facebook.FacebookOAuth2",
 }
 
 ALLOWED_HOSTS = ["mysite.com", "localhost", "127.0.0.1"]
+
+SOCIAL_AUTH_FACEBOOK_KEY = "1017992396164765"  # Facebook App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = "8cadcb134d19e64259b7d6c34a7b1c2d"  # Facebook App Secret
+SOCIAL_AUTH_FACEBOOK_SCOPE = "email"
