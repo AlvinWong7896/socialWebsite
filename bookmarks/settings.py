@@ -10,8 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
-from pathlib import Path
+from django.urls import reverse_lazy
 import os
+from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -156,3 +157,8 @@ ALLOWED_HOSTS = ["mysite.com", "localhost", "127.0.0.1"]
 SOCIAL_AUTH_FACEBOOK_KEY = "1017992396164765"  # Facebook App ID
 SOCIAL_AUTH_FACEBOOK_SECRET = "8cadcb134d19e64259b7d6c34a7b1c2d"  # Facebook App Secret
 SOCIAL_AUTH_FACEBOOK_SCOPE = "email"
+
+
+ABSOLUTE_URL_OVERRIDES = {
+    "auth.user": lambda u: reverse_lazy("user_detail", args=[u.username])
+}
